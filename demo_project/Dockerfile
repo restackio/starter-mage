@@ -1,4 +1,3 @@
-# Use the mageai/mageai:latest base image
 FROM mageai/mageai:latest
 
 ARG PROJECT_NAME=demo_project
@@ -14,9 +13,9 @@ COPY $demo_project $demo_project
 # The project path needs to contain project name.
 # Replace [project_name] with the name of your project (e.g. demo_project)
 ENV USER_CODE_PATH=${USER_CODE_PATH}
-COPY requirements.txt /
+
 # Install custom Python libraries
-RUN pip3 install -r /requirements.txt
+RUN pip3 install -r ${USER_CODE_PATH}/requirements.txt
 # Install custom libraries within 3rd party libraries (e.g. dbt packages)
 RUN python3 /app/install_other_dependencies.py --path ${USER_CODE_PATH}
 
