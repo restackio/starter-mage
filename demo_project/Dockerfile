@@ -16,7 +16,7 @@ COPY $demo_project $demo_project
 ENV USER_CODE_PATH=${USER_CODE_PATH}
 
 # Install custom Python libraries
-RUN pip3 install -r ${USER_CODE_PATH}/requirements.txt
+RUN pip3 install -r /app/requirements.txt
 # Install custom libraries within 3rd party libraries (e.g. dbt packages)
 RUN python3 /app/install_other_dependencies.py --path ${USER_CODE_PATH}
 
