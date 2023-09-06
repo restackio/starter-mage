@@ -10,6 +10,7 @@ WORKDIR ${MAGE_CODE_PATH}
 # Replace [project_name] with the name of your project (e.g. demo_project)
 COPY $demo_project $demo_project
 
+
 # Set the USER_CODE_PATH variable to the path of user project.
 # The project path needs to contain project name.
 # Replace [project_name] with the name of your project (e.g. demo_project)
