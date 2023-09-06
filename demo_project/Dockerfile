@@ -1,3 +1,4 @@
+# Use the mageai/mageai:latest base image
 FROM mageai/mageai:latest
 
 ARG PROJECT_NAME=demo_project
