@@ -6,11 +6,9 @@ ARG MAGE_CODE_PATH=/home/mage_code
 ARG USER_CODE_PATH=${MAGE_CODE_PATH}/$demo_project
 
 WORKDIR ${MAGE_CODE_PATH}
-# Copy the metadata.yaml file into the container
-COPY metadata.yaml /home/mage_code/metadata.yaml
 
 # Change permissions for the metadata.yaml file
-RUN chmod +rw /home/mage_code/metadata.yaml
+COPY --chown=mage:users metadata.yaml /home/mage_code/metadata.yaml
 
 # Replace [project_name] with the name of your project (e.g. demo_project)
 COPY $demo_project $demo_project
