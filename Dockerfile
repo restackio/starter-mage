@@ -3,8 +3,8 @@ FROM mageai/mageai:latest
 LABEL description="Deploy Mage on ECS"
 # Set the environment variables
 
-ENV MAGE_DATA_DIR="/home/src/mage_data"   # Define the directory for Mage data
-ENV PYTHONPATH="${PYTHONPATH}:/home/src"  # Set the Python path to include /home/src
+ENV MAGE_DATA_DIR="/home/src/mage_data"
+ENV PYTHONPATH="${PYTHONPATH}:/home/src"  
 
 # Set the working directory inside the container
 WORKDIR /home/src
