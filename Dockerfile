@@ -8,7 +8,8 @@ ARG USER_CODE_PATH=${MAGE_CODE_PATH}/$demo_project
 WORKDIR ${MAGE_CODE_PATH}
 
 # Change permissions for the metadata.yaml file
-COPY --chown=mage:users metadata.yaml /home/mage_code/metadata.yaml
+RUN groupadd -r mage && useradd -r -g mage mage
+COPY --chown=mage:mage metadata.yaml /home/mage_code/metadata.yaml
 
 # Replace [project_name] with the name of your project (e.g. demo_project)
 COPY $demo_project $demo_project
