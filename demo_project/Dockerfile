@@ -14,7 +14,7 @@ COPY $demo_project $demo_project
 # The project path needs to contain project name.
 # Replace [project_name] with the name of your project (e.g. demo_project)
 ENV USER_CODE_PATH=${USER_CODE_PATH}
-
+COPY requirements.txt /app/requirements.txt
 # Install custom Python libraries
 RUN pip3 install -r /app/requirements.txt
 # Install custom libraries within 3rd party libraries (e.g. dbt packages)
