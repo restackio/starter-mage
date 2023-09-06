@@ -1,4 +1,4 @@
-FROM mmageai/mageai:latest
+FROM mageai/mageai:latest
 LABEL description="Deploy Mage on ECS"
 
 
