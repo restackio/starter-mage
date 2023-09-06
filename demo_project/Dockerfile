@@ -7,13 +7,13 @@ ARG USER_CODE_PATH=${MAGE_CODE_PATH}$demo_project
 WORKDIR ${MAGE_CODE_PATH}
 
 # Replace [project_name] with the name of your project (e.g. demo_project)
-COPY $demo_project $demo_project
+COPY demo_project/ .
 
 # Set the USER_CODE_PATH variable to the path of user project.
 # The project path needs to contain project name.
 # Replace [project_name] with the name of your project (e.g. demo_project)
 ENV USER_CODE_PATH=${USER_CODE_PATH}
-COPY requirements.txt ${USER_CODE_PATH}/requirements.txt
+COPY ${USER_CODE_PATH}/requirements.txt ${USER_CODE_PATH}/requirements.txt
 # Install custom Python libraries
 RUN pip3 install -r ${USER_CODE_PATH}/requirements.txt
 # Install custom libraries within 3rd party libraries (e.g. dbt packages)
