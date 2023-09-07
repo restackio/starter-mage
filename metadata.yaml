@@ -2,3 +2,5 @@ blocks: []
 name: etl_demo
 type: python
 uuid: etl_demo
+executor:
+  name: k8s-executor
