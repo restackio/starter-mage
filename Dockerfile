@@ -8,8 +8,6 @@ ARG USER_CODE_PATH=${MAGE_CODE_PATH}/$demo_project
 WORKDIR ${MAGE_CODE_PATH}
 USER root
 
-COPY  metadata.yaml /home/mage_code/metadata.yaml
-
 # Replace [project_name] with the name of your project (e.g. demo_project)
 COPY $demo_project $demo_project
 
