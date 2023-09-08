@@ -6,12 +6,18 @@ ARG PROJECT_NAME=demo_project
 ARG MAGE_CODE_PATH=/home/mage_code
 ARG USER_CODE_PATH=${MAGE_CODE_PATH}/${PROJECT_NAME}
 
+# Set the working directory
 WORKDIR ${MAGE_CODE_PATH}
+
+# Ensure the project directory and metadata file exist with the correct ownership
+RUN mkdir -p ${USER_CODE_PATH} && \
+    touch ${USER_CODE_PATH}/metadata.yaml && \
+    chown -R 1000:1000 ${USER_CODE_PATH}
 
 # Copy project to the specified path
 COPY ${PROJECT_NAME} ${PROJECT_NAME}
 
-# Set the USER_CODE_PATH variable to the path of the user project.
+# Set the USER_CODE_PATH variable to the path of the user project
 ENV USER_CODE_PATH=${USER_CODE_PATH}
 
 # Copy metadata.yaml from the project to the specified location
