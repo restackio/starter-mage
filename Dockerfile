@@ -6,7 +6,6 @@ ARG MAGE_CODE_PATH=/home/mage_code
 ARG USER_CODE_PATH=${MAGE_CODE_PATH}/$demo_project
 
 WORKDIR ${MAGE_CODE_PATH}
-USER root
 
 # Replace [project_name] with the name of your project (e.g. demo_project)
 COPY $demo_project $demo_project
@@ -16,6 +15,8 @@ COPY $demo_project $demo_project
 # Replace [project_name] with the name of your project (e.g. demo_project)
 ENV USER_CODE_PATH=${USER_CODE_PATH}
 
+
+COPY metadata.yaml /home/mage_code/metadata.yaml
 # Install custom Python libraries
 RUN pip3 install -r ${USER_CODE_PATH}/requirements.txt
 # Install custom libraries within 3rd party libraries (e.g. dbt packages)
@@ -24,4 +25,3 @@ RUN python3 /app/install_other_dependencies.py --path ${USER_CODE_PATH}
 ENV PYTHONPATH="${PYTHONPATH}:/home/mage_code"
 
 CMD ["/bin/sh", "-c", "/app/run_app.sh"]
-USER mage
