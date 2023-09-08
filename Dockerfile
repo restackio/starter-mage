@@ -19,6 +19,7 @@ COPY demo_project/pipelines/etl_demo/metadata.yaml /home/mage_code/metadata.yaml
 RUN groupadd -r mage && useradd -r -g mage mage
 
 RUN chown mage:mage /home/mage_code/metadata.yaml
+RUN chmod 644 /home/mage_code/metadata.yaml
 # Install custom Python libraries
 RUN pip3 install -r ${USER_CODE_PATH}/requirements.txt
 # Install custom libraries within 3rd party libraries (e.g. dbt packages)
