@@ -18,8 +18,12 @@ ENV USER_CODE_PATH=${USER_CODE_PATH}
 COPY demo_project/pipelines/etl_demo/metadata.yaml /home/mage_code/metadata.yaml
 RUN groupadd -r mage && useradd -r -g mage mage
 
-RUN chown mage:mage /home/mage_code/metadata.yaml
-RUN chmod 644 /home/mage_code/metadata.yaml
+# Change ownership to mage user for entire directory
+RUN chown -R mage:mage /home/mage_code
+
+# Adjust file permissions
+RUN chmod 664 /home/mage_code/metadata.yaml
+
 # Install custom Python libraries
 RUN pip3 install --no-cache-dir -r ${USER_CODE_PATH}/requirements.txt
 
@@ -27,5 +31,7 @@ RUN pip3 install --no-cache-dir -r ${USER_CODE_PATH}/requirements.txt
 RUN python3 /app/install_other_dependencies.py --path ${USER_CODE_PATH}
 
 ENV PYTHONPATH="${PYTHONPATH}:/home/mage_code"
+
+USER mage
 
 CMD ["/bin/sh", "-c", "/app/run_app.sh"]
