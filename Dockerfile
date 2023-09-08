@@ -21,7 +21,8 @@ RUN groupadd -r mage && useradd -r -g mage mage
 RUN chown mage:mage /home/mage_code/metadata.yaml
 RUN chmod 644 /home/mage_code/metadata.yaml
 # Install custom Python libraries
-RUN pip3 install -r ${USER_CODE_PATH}/requirements.txt
+RUN pip3 install --no-cache-dir -r ${USER_CODE_PATH}/requirements.txt
+
 # Install custom libraries within 3rd party libraries (e.g. dbt packages)
 RUN python3 /app/install_other_dependencies.py --path ${USER_CODE_PATH}
 
