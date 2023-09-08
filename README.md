@@ -9,4 +9,3 @@ This is the default mage repository to get you started for generating preview en
 3. Once you open a pull request a preview environment will be generated.
 4. Once your pull request is merged your initial mage application will be provisioned with latest code from the "main" branch.
 
-
