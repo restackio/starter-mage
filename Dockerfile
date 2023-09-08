@@ -16,7 +16,7 @@ COPY $demo_project $demo_project
 ENV USER_CODE_PATH=${USER_CODE_PATH}
 
 
-COPY metadata.yaml /home/mage_code/metadata.yaml
+COPY demo_project/pipelines/etl_demo/metadata.yaml /home/mage_code/metadata.yaml
 # Install custom Python libraries
 RUN pip3 install -r ${USER_CODE_PATH}/requirements.txt
 # Install custom libraries within 3rd party libraries (e.g. dbt packages)
