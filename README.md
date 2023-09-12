@@ -1,4 +1,4 @@
-# Mage Starter repository by Restack
+# Mage starter repository by Restack
 
 This is the Mage repository by Restack to get you started for generating preview environments from a custom mage image with the Restack Github application. 
 
