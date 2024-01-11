@@ -1,5 +1,6 @@
 k8s_executor_config:
   job_name_prefix: k8s-executor
+  namespace: mat3qa # replace with application shortId
   resource_limits:
     cpu: 100m
     memory: 256Mi
