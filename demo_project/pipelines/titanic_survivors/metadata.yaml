@@ -1,25 +1,28 @@
 blocks:
-- downstream_blocks:
-  - extract_and_impute_numbers
-  name: load dataset
-  status: executed
-  type: data_loader
-  upstream_blocks: []
-  uuid: load_dataset
-- downstream_blocks:
-  - train_model
-  name: extract and impute numbers
-  status: executed
-  type: transformer
-  upstream_blocks:
-  - load_dataset
-  uuid: extract_and_impute_numbers
-- downstream_blocks: []
-  name: train model
-  status: executed
-  type: data_exporter
-  upstream_blocks:
-  - extract_and_impute_numbers
-  uuid: train_model
+  - downstream_blocks:
+      - extract_and_impute_numbers
+    name: load dataset
+    status: executed
+    type: data_loader
+    upstream_blocks: []
+    uuid: load_dataset
+    executor_type: k8s
+  - downstream_blocks:
+      - train_model
+    name: extract and impute numbers
+    status: executed
+    type: transformer
+    upstream_blocks:
+      - load_dataset
+    uuid: extract_and_impute_numbers
+    executor_type: k8s
+  - downstream_blocks: []
+    name: train model
+    status: executed
+    type: data_exporter
+    upstream_blocks:
+      - extract_and_impute_numbers
+    uuid: train_model
+    executor_type: k8s
 name: titanic survivors
 uuid: titanic_survivors
