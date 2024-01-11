@@ -5,5 +5,5 @@ k8s_executor_config:
     memory: 256Mi
   resource_requests:
     cpu: 50m
-    memory: 256Mi
+    memory: 128Mi
   service_account_name: mageai
