@@ -1,0 +1,9 @@
+k8s_executor_config:
+  job_name_prefix: k8s-executor
+  resource_limits:
+    cpu: 100m
+    memory: 256Mi
+  resource_requests:
+    cpu: 50m
+    memory: 256Mi
+  service_account_name: mageai
