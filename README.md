@@ -2,13 +2,22 @@
 
 This is the default mage repository to get you started for generating preview environments from a custom mage image with Restack github application.
 
-# Kubenertes Executor coming soon
+# Run pipelines with Kubernetes executor
 
-We are currently developing a new version that will include support for the Kubernetes Executor. Until this version is released, please continue using the default Python executor.
+To scale your pipelines leveraging Kubernetes, you need to enable your pipelines to use the k8s executor.
+More information on https://docs.mage.ai/production/configuring-production-settings/compute-resource#2-customize-the-compute-resource-of-the-mage-executor
 
-Make sure that the /demo_project/metadata.yaml is not using the Kubernetes executor
+In demo_project/metadata.yaml:
 
-When using the Mage.ai UI do not run the pipelines with the Kubernetes executor.
+Replace namespace: mat3qa with your application shortId.
+
+In demo_project/pipelines/titanic_survivors/metadata.yaml:
+
+Make sure each block has executor_type: k8s, otherwise will use python executor.
+
+In the UI of Mage:
+
+In the pipeline settings, make sure Executor "k8s" is selected.
 
 # Enable CI/CD with Restack
 

@@ -1,4 +1,7 @@
-FROM mageai/mageai:latest
+
+ARG RESTACK_PRODUCT_VERSION=latest
+
+FROM mageai/mageai:${RESTACK_PRODUCT_VERSION}
 
 ARG PROJECT_NAME=demo_project
 ARG MAGE_CODE_PATH=/home/mage_code
