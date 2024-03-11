@@ -1,6 +1,6 @@
 k8s_executor_config:
   job_name_prefix: k8s-executor
-  namespace: macz1q # replace with application shortId
+  namespace: maffyo # replace with application shortId
   resource_limits:
     cpu: 100m
     memory: 256Mi
