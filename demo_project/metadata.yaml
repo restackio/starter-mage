@@ -1,2 +1,10 @@
-# The current mage.ai version running on Restack do NOT support the Kubernetes Executor,
-# Left this file empty to use the default Python executor instead.
+k8s_executor_config:
+  job_name_prefix: k8s-executor
+  namespace: maffyo # replace with application shortId
+  resource_limits:
+    cpu: 100m
+    memory: 256Mi
+  resource_requests:
+    cpu: 50m
+    memory: 128Mi
+  service_account_name: default
