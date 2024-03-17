@@ -19,14 +19,6 @@ In the UI of Mage:
 
 In the pipeline settings, make sure Executor "k8s" is selected.
 
-# Enable CI/CD with Restack
-
-We are working in a new version that will introduce support for the Kubernetes Executor. In the meantime, you should use the default Python executor.
-
-Please ensure that the /demo_project/metadata.yaml file is configured to NOT use the Kubernetes Executor. Feel free to use the version included in our starter repo.
-
-Additionally, when operating within the Mage.ai UI, avoid executing pipelines with the Kubernetes Executor.
-
 # Generate preview environments
 
 Go to your stack settings.
