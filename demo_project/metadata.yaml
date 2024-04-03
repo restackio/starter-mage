@@ -1,8 +1,7 @@
 k8s_executor_config:
-  pod_config:
-    metadata:
-      annotations:
-        gke-gcsfuse/volumes: "true"
+  metadata:
+    annotations:
+      gke-gcsfuse/volumes: "true"
   job_name_prefix: k8s-executor
   namespace: maffyo # replace with application shortId
   resource_limits:
